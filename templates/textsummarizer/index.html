@@ -1,0 +1,59 @@
+<!-- mi_aplicacion/templates/mi_aplicacion/index.html -->
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- ... other head content ... -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/custom.css' %}">
+</head>
+
+<body>
+    <div>
+        <header class="back">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <img alt="Logo" src="{% static 'image1.webp' %}" width="150" height="100"
+                        class="d-inline-block align-text-top">
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <h2>&nbsp;&nbsp; Summarize in One Click</h2>
+                </li>
+            </ul>
+        </header>
+
+        <main class="back margin">
+            <form method="post" action="{% url 'text_summarizer' %}">
+                {% csrf_token %}
+                <div class="d-grid gap-2 p-2 margin2">
+                    <textarea name="input_text" rows="10" cols="30">{{ input_text }}</textarea><br>
+                </div>
+
+                <div class="d-grid gap-2 px-2">
+                    <input type="submit" class="btn btn-primary" value="Summarize">
+                </div>
+            </form>
+
+            {% if summary %}
+            <h3>Summary:</h3>
+            <p>{{ summary }}</p>
+            {% endif %}
+            <!--         
+            <div class="d-grid gap-2 p-2 margin2">
+                <textarea name="summary" id="summary" cols="30" rows="5">{{ summary }}</textarea>
+            </div>
+        </main> -->
+            <footer class="back margin">
+                <hr>
+                <span>Laura Lizarazo - Jose Cabrera <br> Smart Devices UI (SEC 003) - Final Project</span>
+            </footer>
+    </div>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,20 @@
+<!-- mi_aplicacion/templates/mi_aplicacion/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarizer</title>
+</head>
+<body>
+    <h2>Text Summarizer</h2>
+    <form method="post" action="{% url 'text_summarizer' %}">
+        {% csrf_token %}
+        <textarea name="input_text" rows="10" cols="50">{{ input_text }}</textarea><br>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if summary %}
+        <h3>Summary:</h3>
+        <p>{{ summary }}</p>
+    {% endif %}
+</body>
+</html>

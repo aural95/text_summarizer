@@ -1,0 +1,15 @@
+
+body {
+    background-color: rgb(65, 65, 65);
+}
+.back{
+    background-color: beige;
+}
+
+.margin{
+    margin: 0% 20%;
+    text-align: center;
+}
+.margin2{
+    margin: 2% 0%;
+}
